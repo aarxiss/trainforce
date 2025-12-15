@@ -31,6 +31,7 @@
             opacity: 0;
             transition: opacity 0.5s ease-in-out;
             background: radial-gradient(circle at center, #1e293b 0%, #0f172a 100%);
+            z-index: 0;
         }
         .slide.active {
             display: flex;
@@ -60,7 +61,7 @@
             pointer-events: none;
         }
         .card {
-            background: rgba(30, 41, 59, 0.7);
+            background: rgba(30, 41, 59, 0.8);
             border: 1px solid #334155;
             backdrop-filter: blur(5px);
         }
@@ -115,17 +116,17 @@
 
     <!-- Navigation Overlay -->
     <div class="fixed bottom-8 right-8 z-50 flex gap-4">
-        <button onclick="prevSlide()" class="p-4 rounded-full border border-green-500 hover:bg-green-500 hover:text-black transition duration-300">
+        <button onclick="prevSlide()" class="p-4 rounded-full border border-green-500 hover:bg-green-500 hover:text-black transition duration-300 cursor-pointer">
             <i class="fas fa-chevron-left"></i>
         </button>
-        <button onclick="nextSlide()" class="p-4 rounded-full bg-green-500 text-black font-bold hover:bg-green-400 transition duration-300 shadow-[0_0_15px_rgba(74,222,128,0.5)]">
+        <button onclick="nextSlide()" class="p-4 rounded-full bg-green-500 text-black font-bold hover:bg-green-400 transition duration-300 shadow-[0_0_15px_rgba(74,222,128,0.5)] cursor-pointer">
             <i class="fas fa-chevron-right"></i>
         </button>
     </div>
 
     <!-- Progress Bar -->
     <div class="fixed top-0 left-0 h-1 bg-gray-800 w-full z-50">
-        <div id="progress" class="h-full accent-bg transition-all duration-300" style="width: 10%;"></div>
+        <div id="progress" class="h-full accent-bg transition-all duration-300" style="width: 9%;"></div>
     </div>
 
     <!-- Slide counter -->
@@ -309,7 +310,6 @@
     <div class="slide" id="slide-4">
         <div class="container mx-auto relative z-10 px-4 h-full flex flex-col justify-center">
             <div class="text-center mb-8">
-                <!-- REMOVED GEMINI BADGE HERE -->
                 <h2 class="text-4xl md:text-5xl font-bold">LIVE DEMO</h2>
                 <p class="text-gray-400 mt-2">ПЕРЕВІРТЕ АЛГОРИТМ ПРЯМО ЗАРАЗ</p>
             </div>
@@ -383,16 +383,19 @@
 
     <!-- SLIDE 6: MARKET SIZE -->
     <div class="slide" id="slide-5">
+        <!-- Background Image -->
+        <img src="https://images.unsplash.com/photo-1579912437766-79b8a82d8c36?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80" class="absolute inset-0 w-full h-full object-cover opacity-20 z-0">
+        
         <div class="container mx-auto relative z-10 flex flex-col md:flex-row items-center justify-center px-4">
             
             <!-- Visual -->
             <div class="w-full md:w-1/2 h-[500px] relative flex items-center justify-center">
                 <!-- TAM -->
-                <div class="market-circle w-[450px] h-[450px] border border-gray-600 bg-gray-800/30">
+                <div class="market-circle w-[450px] h-[450px] border border-gray-600 bg-gray-800/80">
                     <span class="absolute top-8 text-gray-500 font-bold">TAM</span>
                 </div>
                 <!-- SAM -->
-                <div class="market-circle w-[300px] h-[300px] border border-green-700 bg-green-900/20">
+                <div class="market-circle w-[300px] h-[300px] border border-green-700 bg-green-900/60">
                     <span class="absolute top-8 text-green-700 font-bold">SAM</span>
                 </div>
                 <!-- SOM -->
@@ -403,23 +406,23 @@
 
             <!-- Text -->
             <div class="w-full md:w-1/2 pl-8">
-                <h2 class="text-5xl font-bold mb-8">ОБЪЕМ РЫНКА</h2>
+                <h2 class="text-5xl font-bold mb-8">ОБСЯГ РИНКУ</h2>
                 
                 <div class="space-y-6">
-                    <div class="border-l-4 border-gray-600 pl-4">
+                    <div class="border-l-4 border-gray-600 pl-4 bg-gray-900/50 p-2">
                         <h3 class="text-2xl font-bold">TAM: ~20 МЛН</h3>
-                        <p class="text-gray-400">Весь рынок Украины (18-60 лет), мобилизованные.</p>
+                        <p class="text-gray-400">Весь ринок України (18-60 років), мобілізовані.</p>
                     </div>
                     
-                    <div class="border-l-4 border-green-700 pl-4">
+                    <div class="border-l-4 border-green-700 pl-4 bg-gray-900/50 p-2">
                         <h3 class="text-2xl font-bold text-green-700">SAM: ~2 МЛН</h3>
-                        <p class="text-gray-400">Военные ЗСУ, ТРО, НГУ, курсанты и кандидаты.</p>
+                        <p class="text-gray-400">Військові ЗСУ, ТРО, НГУ, курсанти та кандидати.</p>
                     </div>
 
-                    <div class="border-l-4 border-green-400 pl-4">
+                    <div class="border-l-4 border-green-400 pl-4 bg-gray-900/50 p-2">
                         <h3 class="text-3xl font-bold text-green-400">SOM: 100,000</h3>
-                        <p class="text-gray-300 font-bold">Платных пользователей за 3 года.</p>
-                        <p class="text-sm text-gray-500 mt-2">Целевая аудитория: Кандидаты в ССО/ДШВ, ветераны.</p>
+                        <p class="text-gray-300 font-bold">Платних користувачів за 3 роки.</p>
+                        <p class="text-sm text-gray-500 mt-2">Цільова аудиторія: Кандидати в ССО/ДШВ, ветерани.</p>
                     </div>
                 </div>
             </div>
@@ -429,41 +432,41 @@
     <!-- SLIDE 7: COMPETITION -->
     <div class="slide" id="slide-6">
         <div class="container mx-auto relative z-10 px-4">
-            <h2 class="text-5xl font-bold mb-8 text-center">КОНКУРЕНЦИЯ</h2>
+            <h2 class="text-5xl font-bold mb-8 text-center">КОНКУРЕНЦІЯ</h2>
             
             <div class="overflow-x-auto">
-                <table class="w-full text-left border-collapse">
+                <table class="w-full text-left border-collapse bg-gray-900/50">
                     <thead>
                         <tr class="text-gray-500 border-b border-gray-700">
                             <th class="p-4">ПРОДУКТ</th>
-                            <th class="p-4">СПЕЦИФИКАЦИЯ</th>
-                            <th class="p-4">АДАПТИВНОСТЬ</th>
-                            <th class="p-4">ПОЛЕВЫЕ УСЛОВИЯ</th>
+                            <th class="p-4">СПЕЦИФІКАЦІЯ</th>
+                            <th class="p-4">АДАПТИВНІСТЬ</th>
+                            <th class="p-4">ПОЛЬОВІ УМОВИ</th>
                         </tr>
                     </thead>
                     <tbody class="text-lg">
                         <tr class="border-b border-gray-800">
-                            <td class="p-4 text-gray-400">Фитнес-приложения (Strong)</td>
-                            <td class="p-4">Эстетика</td>
-                            <td class="p-4 text-red-500"><i class="fas fa-times"></i> Низкая</td>
-                            <td class="p-4 text-red-500"><i class="fas fa-times"></i> Нужен зал</td>
+                            <td class="p-4 text-gray-400">Фітнес-додатки (Strong)</td>
+                            <td class="p-4">Естетика</td>
+                            <td class="p-4 text-red-500"><i class="fas fa-times"></i> Низька</td>
+                            <td class="p-4 text-red-500"><i class="fas fa-times"></i> Потрібен зал</td>
                         </tr>
                         <tr class="border-b border-gray-800">
-                            <td class="p-4 text-gray-400">PDF Программы / YouTube</td>
-                            <td class="p-4">Правильные упражнения</td>
-                            <td class="p-4 text-red-500"><i class="fas fa-times"></i> Отсутствует</td>
+                            <td class="p-4 text-gray-400">PDF Програми / YouTube</td>
+                            <td class="p-4">Правильні вправи</td>
+                            <td class="p-4 text-red-500"><i class="fas fa-times"></i> Відсутня</td>
                             <td class="p-4 text-yellow-500"><i class="fas fa-minus"></i> 50/50</td>
                         </tr>
                         <tr class="border-b border-gray-800">
-                            <td class="p-4 text-gray-400">Личный Тренер</td>
-                            <td class="p-4">Высокая</td>
-                            <td class="p-4 text-green-500"><i class="fas fa-check"></i> Высокая</td>
-                            <td class="p-4 text-red-500"><i class="fas fa-times"></i> Дорого/Сложно</td>
+                            <td class="p-4 text-gray-400">Особистий Тренер</td>
+                            <td class="p-4">Висока</td>
+                            <td class="p-4 text-green-500"><i class="fas fa-check"></i> Висока</td>
+                            <td class="p-4 text-red-500"><i class="fas fa-times"></i> Дорого/Складно</td>
                         </tr>
-                        <tr class="bg-green-900/20 border border-green-500">
+                        <tr class="bg-green-900/40 border border-green-500">
                             <td class="p-4 font-bold text-white text-xl">TRAIN FORCE</td>
-                            <td class="p-4 text-green-400 font-bold">БОЕВЫЕ НОРМАТИВЫ</td>
-                            <td class="p-4 text-green-400 font-bold"><i class="fas fa-check-double"></i> AI-КОРЕКЦИЯ</td>
+                            <td class="p-4 text-green-400 font-bold">БОЙОВІ НОРМАТИВИ</td>
+                            <td class="p-4 text-green-400 font-bold"><i class="fas fa-check-double"></i> AI-КОРЕКЦІЯ</td>
                             <td class="p-4 text-green-400 font-bold"><i class="fas fa-check-double"></i> ZERO GEAR</td>
                         </tr>
                     </tbody>
@@ -473,11 +476,11 @@
             <div class="mt-8 flex justify-center gap-8">
                 <div class="text-center">
                     <i class="fas fa-shield-alt text-3xl text-green-500 mb-2"></i>
-                    <p class="text-sm font-bold">ВОЕННАЯ ФИЗИОЛОГИЯ</p>
+                    <p class="text-sm font-bold">ВІЙСЬКОВА ФІЗІОЛОГІЯ</p>
                 </div>
                 <div class="text-center">
                     <i class="fas fa-server text-3xl text-green-500 mb-2"></i>
-                    <p class="text-sm font-bold">B2B ИНТЕГРАЦИЯ</p>
+                    <p class="text-sm font-bold">B2B ІНТЕГРАЦІЯ</p>
                 </div>
             </div>
         </div>
@@ -486,7 +489,7 @@
     <!-- SLIDE 8: BUSINESS MODEL -->
     <div class="slide" id="slide-7">
         <div class="container mx-auto relative z-10 px-4">
-            <h2 class="text-5xl font-bold mb-12 text-center">БИЗНЕС-МОДЕЛЬ</h2>
+            <h2 class="text-5xl font-bold mb-12 text-center">БІЗНЕС-МОДЕЛЬ</h2>
             
             <div class="flex flex-col md:flex-row gap-8 justify-center items-stretch">
                 <!-- Free -->
@@ -495,9 +498,9 @@
                         <h3 class="text-2xl font-bold mb-4">FREE</h3>
                         <div class="text-4xl font-bold mb-6">$0</div>
                         <ul class="text-left space-y-3 text-gray-400 mb-8">
-                            <li><i class="fas fa-check text-xs"></i> Базовые программы</li>
-                            <li><i class="fas fa-check text-xs"></i> Библиотека упражнений</li>
-                            <li><i class="fas fa-check text-xs"></i> Ознакомление</li>
+                            <li><i class="fas fa-check text-xs"></i> Базові програми</li>
+                            <li><i class="fas fa-check text-xs"></i> Бібліотека вправ</li>
+                            <li><i class="fas fa-check text-xs"></i> Ознайомлення</li>
                         </ul>
                     </div>
                     <button class="w-full py-2 border border-gray-500 rounded text-gray-400">START</button>
@@ -508,11 +511,11 @@
                     <div class="absolute top-0 right-0 bg-green-500 text-black text-xs font-bold px-2 py-1">MAIN</div>
                     <div class="text-center">
                         <h3 class="text-2xl font-bold mb-4 text-green-400">PRO ELITE</h3>
-                        <div class="text-5xl font-bold mb-6 text-white">$7.99<span class="text-sm font-normal text-gray-400">/мес</span></div>
+                        <div class="text-5xl font-bold mb-6 text-white">$7.99<span class="text-sm font-normal text-gray-400">/міс</span></div>
                         <ul class="text-left space-y-3 text-gray-200 mb-8">
-                            <li><i class="fas fa-check text-green-500"></i> <span class="font-bold">AI-Персонализация</span></li>
-                            <li><i class="fas fa-check text-green-500"></i> Трекинг сна и пульса</li>
-                            <li><i class="fas fa-check text-green-500"></i> Спец. нормативы</li>
+                            <li><i class="fas fa-check text-green-500"></i> <span class="font-bold">AI-Персоналізація</span></li>
+                            <li><i class="fas fa-check text-green-500"></i> Трекінг сну та пульсу</li>
+                            <li><i class="fas fa-check text-green-500"></i> Спец. нормативи</li>
                         </ul>
                     </div>
                     <button class="w-full py-2 bg-green-500 text-black font-bold rounded hover:bg-green-400">SUBSCRIBE</button>
@@ -522,11 +525,11 @@
                 <div class="w-full md:w-1/3 card p-8 flex flex-col items-center justify-between">
                     <div class="text-center">
                         <h3 class="text-2xl font-bold mb-4 text-blue-400">B2B / GOV</h3>
-                        <div class="text-3xl font-bold mb-6">$1k - $5k<span class="text-sm font-normal text-gray-400">/год</span></div>
+                        <div class="text-3xl font-bold mb-6">$1k - $5k<span class="text-sm font-normal text-gray-400">/рік</span></div>
                         <ul class="text-left space-y-3 text-gray-400 mb-8">
-                            <li><i class="fas fa-building text-blue-400"></i> Лицензии для ТЦК</li>
-                            <li><i class="fas fa-users text-blue-400"></i> Для воинских частей</li>
-                            <li><i class="fas fa-chart-pie text-blue-400"></i> Аналитика состава</li>
+                            <li><i class="fas fa-building text-blue-400"></i> Ліцензії для ТЦК</li>
+                            <li><i class="fas fa-users text-blue-400"></i> Для військових частин</li>
+                            <li><i class="fas fa-chart-pie text-blue-400"></i> Аналітика складу</li>
                         </ul>
                     </div>
                     <button class="w-full py-2 border border-blue-400 text-blue-400 rounded hover:bg-blue-400 hover:text-black">CONTACT SALES</button>
@@ -534,16 +537,19 @@
             </div>
 
             <div class="mt-12 text-center">
-                <p class="text-2xl font-bold">ПРОГНОЗ: <span class="text-green-400">$225,000 / мес</span></p>
-                <p class="text-gray-500">При достижении 30,000 активных пользователей</p>
+                <p class="text-2xl font-bold">ПРОГНОЗ: <span class="text-green-400">$225,000 / міс</span></p>
+                <p class="text-gray-500">При досягненні 30,000 активних користувачів</p>
             </div>
         </div>
     </div>
 
     <!-- SLIDE 9: ROADMAP -->
     <div class="slide" id="slide-8">
+        <!-- Background Map -->
+        <img src="https://images.unsplash.com/photo-1577083288073-40892c0860a4?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80" class="absolute inset-0 w-full h-full object-cover opacity-20 z-0 grayscale">
+
         <div class="container mx-auto relative z-10 px-4">
-            <h2 class="text-5xl font-bold mb-12">ROADMAP</h2>
+            <h2 class="text-5xl font-bold mb-12">ДОРОЖНЯ КАРТА</h2>
             
             <div class="relative border-l-2 border-green-500 ml-6 md:ml-12 space-y-12">
                 
@@ -551,18 +557,18 @@
                 <div class="relative pl-8">
                     <div class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-green-500 shadow-[0_0_10px_rgba(74,222,128,0.8)]"></div>
                     <h3 class="text-green-400 font-bold text-xl mb-1">MVP (ЗАВЕРШЕНО)</h3>
-                    <p class="text-white">Базовая платформа запущена. Алгоритм v1.0 работает. Интегрированы 3 основных норматива.</p>
+                    <p class="text-white">Базова платформа запущена. Алгоритм v1.0 працює. Інтегровано 3 основні нормативи.</p>
                 </div>
 
                 <!-- PHASE 1 -->
                 <div class="relative pl-8">
                     <div class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-gray-600 border border-green-500"></div>
-                    <h3 class="text-white font-bold text-xl mb-1">ФАЗА 1 (0-6 МЕС)</h3>
+                    <h3 class="text-white font-bold text-xl mb-1">ФАЗА 1 (0-6 МІС)</h3>
                     <div class="card p-4 inline-block w-full md:w-2/3">
                         <ul class="list-disc list-inside text-gray-400">
-                            <li>Тест на 5,000 пользователей</li>
-                            <li>Первый пилот с ТЦК</li>
-                            <li>Старт монетизации</li>
+                            <li>Тест на 5,000 користувачів</li>
+                            <li>Перший пілот з ТЦК</li>
+                            <li>Старт монетизації</li>
                         </ul>
                     </div>
                 </div>
@@ -570,19 +576,19 @@
                 <!-- PHASE 2 -->
                 <div class="relative pl-8">
                     <div class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-gray-600"></div>
-                    <h3 class="text-white font-bold text-xl mb-1">ФАЗА 2 (6-12 МЕС)</h3>
-                    <p class="text-gray-400 mb-2">Масштабирование продукта.</p>
+                    <h3 class="text-white font-bold text-xl mb-1">ФАЗА 2 (6-12 МІС)</h3>
+                    <p class="text-gray-400 mb-2">Масштабування продукту.</p>
                     <ul class="text-sm text-gray-500">
-                        <li>— Алгоритм 2.0 (Сон/Восстановление)</li>
-                        <li>— 20,000 платных юзеров</li>
+                        <li>— Алгоритм 2.0 (Сон/Відновлення)</li>
+                        <li>— 20,000 платних юзерів</li>
                     </ul>
                 </div>
 
                 <!-- PHASE 3 -->
                 <div class="relative pl-8">
                     <div class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-gray-600"></div>
-                    <h3 class="text-white font-bold text-xl mb-1">ФАЗА 3 (12+ МЕС)</h3>
-                    <p class="text-gray-400">Выход на рынки партнеров (НАТО стандарты).</p>
+                    <h3 class="text-white font-bold text-xl mb-1">ФАЗА 3 (12+ МІС)</h3>
+                    <p class="text-gray-400">Вихід на ринки партнерів (стандарти НАТО).</p>
                 </div>
             </div>
         </div>
@@ -596,25 +602,29 @@
             <div class="flex flex-col md:flex-row justify-center gap-12">
                 <!-- CEO -->
                 <div class="card w-full md:w-1/3 p-0 overflow-hidden border-b-4 border-green-500">
-                    <div class="h-64 bg-gray-700 flex items-center justify-center">
-                        <i class="fas fa-user-tie text-6xl text-gray-500"></i>
+                    <div class="h-80 bg-gray-700 flex items-center justify-center relative group">
+                        <!-- Image CEO -->
+                        <img src="https://images.unsplash.com/photo-1549480017-d76466a4b7e8?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" class="absolute inset-0 w-full h-full object-cover grayscale group-hover:grayscale-0 transition duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-gray-900 to-transparent"></div>
                     </div>
-                    <div class="p-6">
-                        <h3 class="text-2xl font-bold text-white">ИВАН О.</h3>
+                    <div class="p-6 relative">
+                        <h3 class="text-2xl font-bold text-white">ІВАН О.</h3>
                         <p class="text-green-400 font-bold mb-4">CEO / VISIONARY</p>
-                        <p class="text-gray-400 text-sm">8 лет в IT Management. Ветеран боевых действий. Знает проблему изнутри и понимает потребности бойцов.</p>
+                        <p class="text-gray-400 text-sm">8 років в IT Management. Ветеран бойових дій. Знає проблему зсередини та розуміє потреби бійців.</p>
                     </div>
                 </div>
 
                 <!-- CTO -->
                 <div class="card w-full md:w-1/3 p-0 overflow-hidden border-b-4 border-blue-500">
-                    <div class="h-64 bg-gray-700 flex items-center justify-center">
-                        <i class="fas fa-code text-6xl text-gray-500"></i>
+                    <div class="h-80 bg-gray-700 flex items-center justify-center relative group">
+                        <!-- Image CTO -->
+                         <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" class="absolute inset-0 w-full h-full object-cover grayscale group-hover:grayscale-0 transition duration-500">
+                         <div class="absolute inset-0 bg-gradient-to-t from-gray-900 to-transparent"></div>
                     </div>
-                    <div class="p-6">
-                        <h3 class="text-2xl font-bold text-white">АЛЕНА К.</h3>
+                    <div class="p-6 relative">
+                        <h3 class="text-2xl font-bold text-white">ОЛЕНА К.</h3>
                         <p class="text-blue-400 font-bold mb-4">CTO / ARCHITECT</p>
-                        <p class="text-gray-400 text-sm">Эксперт по Machine Learning. Разработчик уникального алгоритма адаптации нагрузок.</p>
+                        <p class="text-gray-400 text-sm">Експерт з Machine Learning. Розробник унікального алгоритму адаптації навантажень.</p>
                     </div>
                 </div>
             </div>
@@ -624,8 +634,8 @@
     <!-- SLIDE 11: CONTACTS -->
     <div class="slide" id="slide-10">
         <div class="container mx-auto relative z-10 text-center px-4">
-            <h2 class="text-6xl font-bold mb-8">ГОТОВЫ К ВОПРОСАМ?</h2>
-            <p class="text-2xl text-green-400 mb-12 uppercase tracking-widest">ДАВАЙТЕ ГОТОВИТЬ ПОБЕДУ ВМЕСТЕ</p>
+            <h2 class="text-6xl font-bold mb-8">ГОТОВІ ДО ЗАПИТАНЬ?</h2>
+            <p class="text-2xl text-green-400 mb-12 uppercase tracking-widest">ГОТУЙМО ПЕРЕМОГУ РАЗОМ</p>
             
             <div class="inline-block p-8 bg-white rounded-lg mb-8">
                 <!-- QR Placeholder -->
@@ -639,7 +649,7 @@
             </div>
 
              <div class="mt-16 pt-8 border-t border-gray-800 text-gray-600 text-sm">
-                TRAIN FORCE © 2025. ALL RIGHTS RESERVED.
+                TRAIN FORCE © 2025. ВСІ ПРАВА ЗАХИЩЕНО.
             </div>
         </div>
     </div>
@@ -764,3 +774,4 @@
     </script>
 </body>
 </html>
+```
